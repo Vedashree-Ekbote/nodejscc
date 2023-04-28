@@ -32,6 +32,12 @@ jobs:
 
  deploy:
     needs: build
+    permissions:
+          pages: write
+          id-token: write
+    environment:
+          name: github-pages
+          url: ${{https://Vedashree-Ekbote.github.io/nodejscc}}
     runs-on: ubuntu-latest
 
     steps:
