@@ -20,14 +20,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Copy File to Destination Repository
+      run: |
+        cp "server.js" "Vedashree-Ekbote/cicd-target"
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-        cache: 'npm'
+     # uses: actions/setup-node@v2
+      #with:
+       # node-version: '14'
+        #cache: 'npm'
         
-    - run: npm install
- 
+    #- run: npm install
+      run: |
+        git config --global user.name "Vedashree-Ekbote"
+        git config --global user.email "vedashree.ekbote10@gmail.com"
+        git add .
+        git commit -m "Send file to another repository"
+        git push
   
 
  deploy:
